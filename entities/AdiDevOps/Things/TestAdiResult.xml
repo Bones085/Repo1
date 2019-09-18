@@ -15,7 +15,7 @@
          enabled="true"
          homeMashup=""
          identifier=""
-         lastModifiedDate="2019-09-18T07:26:58.871-04:00"
+         lastModifiedDate="2019-09-18T07:49:59.041-04:00"
          name="TestAdiResult"
          projectName="AdiDevOps"
          published="false"
@@ -86,16 +86,35 @@
                                         //1. Initializing the test data. Optional.
                                         // me.CreateTestData();
                                         
+                                        //var params = {
+                                        //    infoTableName : "InfoTable",
+                                        //    dataShapeName : "TestResultData"
+                                        //};
+                                        //
+                                        //params = me.search();
+                                        //
+                                        //// CreateInfoTableFromDataShape(infoTableName:STRING("InfoTable"), dataShapeName:STRING):INFOTABLE(TestResultData)
+                                        //// var result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape(params);
+                                        //var result = params;
+                                        
                                         var params = {
                                             infoTableName : "InfoTable",
                                             dataShapeName : "TestResultData"
                                         };
                                         
-                                        params = me.search();
-                                        
                                         // CreateInfoTableFromDataShape(infoTableName:STRING("InfoTable"), dataShapeName:STRING):INFOTABLE(TestResultData)
-                                        // var result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape(params);
-                                        var result = params;
+                                        var result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape(params);
+                                        
+                                        // TestResultData entry object
+                                        var newEntry = new Object();
+                                        newEntry.comments = "Comments1"; // STRING
+                                        newEntry.inputParams = undefined; // JSON
+                                        newEntry.expectedOutput = undefined; // JSON
+                                        newEntry.passed = undefined; // BOOLEAN
+                                        newEntry.testName = undefined; // STRING [Primary Key]
+                                        newEntry.timestamp = undefined; // DATETIME [Primary Key]
+                                        
+                                        result.AddRow(newEntry);
                                         ]]>
                                         </code>
                                     </Row>
