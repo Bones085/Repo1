@@ -15,7 +15,7 @@
          enabled="true"
          homeMashup=""
          identifier=""
-         lastModifiedDate="2019-09-18T07:49:59.041-04:00"
+         lastModifiedDate="2019-09-18T10:11:55.164-04:00"
          name="TestAdiResult"
          projectName="AdiDevOps"
          published="false"
@@ -108,11 +108,11 @@
                                         // TestResultData entry object
                                         var newEntry = new Object();
                                         newEntry.comments = "Comments1"; // STRING
-                                        newEntry.inputParams = undefined; // JSON
-                                        newEntry.expectedOutput = undefined; // JSON
-                                        newEntry.passed = undefined; // BOOLEAN
-                                        newEntry.testName = undefined; // STRING [Primary Key]
-                                        newEntry.timestamp = undefined; // DATETIME [Primary Key]
+                                        newEntry.inputParams = {}; // JSON
+                                        newEntry.expectedOutput = {}; // JSON
+                                        newEntry.passed = true; // BOOLEAN
+                                        newEntry.testName = "Test Name Passed"; // STRING [Primary Key]
+                                        newEntry.timestamp = new Date(); // DATETIME [Primary Key]
                                         
                                         result.AddRow(newEntry);
                                         ]]>
