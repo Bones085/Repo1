@@ -15,7 +15,7 @@
          enabled="true"
          homeMashup=""
          identifier=""
-         lastModifiedDate="2019-10-16T14:29:06.327Z"
+         lastModifiedDate="2019-10-16T14:46:52.272Z"
          name="SheetalTest"
          projectName="AdiDevOps"
          published="false"
@@ -65,6 +65,35 @@
                                     <Row>
                                         <code>
                                         <![CDATA[
+                                        //var params = {
+                                        //    infoTableName : "InfoTable",
+                                        //    dataShapeName : "TestResultData"
+                                        //};
+                                        //
+                                        //// CreateInfoTableFromDataShape(infoTableName:STRING("InfoTable"), dataShapeName:STRING):INFOTABLE(TestResultData)
+                                        //var result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape(params);
+                                        //
+                                        //// TestResultData entry object
+                                        //var FirstEntry = new Object();
+                                        //FirstEntry.comments = "test result that passed the verification"; // STRING
+                                        //FirstEntry.inputParams = {"name": "Mike"}; // JSON
+                                        //FirstEntry.expectedOutput = {"name": "Mike"}; //JSON
+                                        //FirstEntry.passed = true; // BOOLEAN
+                                        //FirstEntry.testName = "Test for UserName Passed"; // STRING [Primary Key]
+                                        //FirstEntry.timestamp = new Date(); // DATETIME [Primary Key]
+                                        //
+                                        //var SecondEntry = new Object();
+                                        //SecondEntry.comments = "test result that failed the verification"; // STRING
+                                        //SecondEntry.inputParams = {"name": "John"}; // JSON
+                                        //SecondEntry.expectedOutput = {"name": "Mike"}; // JSON
+                                        //SecondEntry.passed = false; // BOOLEAN
+                                        //SecondEntry.testName = "Test for UserName Failed"; // STRING [Primary Key]
+                                        //SecondEntry.timestamp = new Date(); // DATETIME [Primary Key]
+                                        //
+                                        //result.AddRow(FirstEntry);
+                                        //result.AddRow(SecondEntry);
+                                        //
+                                        
                                         var params = {
                                             infoTableName : "InfoTable",
                                             dataShapeName : "TestResultData"
@@ -74,24 +103,15 @@
                                         var result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape(params);
                                         
                                         // TestResultData entry object
-                                        var FirstEntry = new Object();
-                                        FirstEntry.comments = "test result that passed the verification"; // STRING
-                                        FirstEntry.inputParams = {"name": "Mike"}; // JSON
-                                        FirstEntry.expectedOutput = {"name": "Mike"}; //JSON
-                                        FirstEntry.passed = true; // BOOLEAN
-                                        FirstEntry.testName = "Test for UserName Passed"; // STRING [Primary Key]
-                                        FirstEntry.timestamp = new Date(); // DATETIME [Primary Key]
+                                        var newEntry = new Object();
+                                        newEntry.comments = "Comments1"; // STRING
+                                        newEntry.inputParams = {"name": "Mike"}; // JSON
+                                        newEntry.expectedOutput = {"name": "Mike"}; // JSON
+                                        newEntry.passed = true; // BOOLEAN
+                                        newEntry.testName = "Test Name Passed"; // STRING [Primary Key]
+                                        newEntry.timestamp = new Date(); // DATETIME [Primary Key]
                                         
-                                        var SecondEntry = new Object();
-                                        SecondEntry.comments = "test result that failed the verification"; // STRING
-                                        SecondEntry.inputParams = {"name": "John"}; // JSON
-                                        SecondEntry.expectedOutput = {"name": "Mike"}; // JSON
-                                        SecondEntry.passed = false; // BOOLEAN
-                                        SecondEntry.testName = "Test for UserName Failed"; // STRING [Primary Key]
-                                        SecondEntry.timestamp = new Date(); // DATETIME [Primary Key]
-                                        
-                                        result.AddRow(FirstEntry);
-                                        result.AddRow(SecondEntry);
+                                        result.AddRow(newEntry);
                                         ]]>
                                         </code>
                                     </Row>
