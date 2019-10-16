@@ -15,8 +15,8 @@
          enabled="true"
          homeMashup=""
          identifier=""
-         lastModifiedDate="2019-10-16T14:29:10.100Z"
-         name="GitThing"
+         lastModifiedDate="2019-10-16T14:29:06.704Z"
+         name="SheetalGitTestThing"
          projectName="AdiDevOps"
          published="false"
          tags=""
@@ -128,12 +128,12 @@
                             </BranchName>
                             <CommitEmail>
                             <![CDATA[
-                            petrescuadrian@yahoo.com
+                            shmane@ptc.com
                             ]]>
                             </CommitEmail>
                             <CommitName>
                             <![CDATA[
-                            Bones
+                            Shital mane
                             ]]>
                             </CommitName>
                             <FileRepository>
@@ -143,7 +143,7 @@
                             </FileRepository>
                             <GitRepoURL>
                             <![CDATA[
-                            https://github.com/Bones085/Repo1
+                            https://github.com/sheetalm22/DevopsRepository
                             ]]>
                             </GitRepoURL>
                             <Password></Password>
@@ -157,7 +157,7 @@
                             <UseProxy>false</UseProxy>
                             <User>
                             <![CDATA[
-                            Bones085
+                            sheetalm22
                             ]]>
                             </User>
                         </Row>
