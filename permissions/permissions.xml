@@ -240,7 +240,23 @@
             <Metadata></Metadata>
         </DesignTimePermissions>
         <RunTimePermissions></RunTimePermissions>
-        <Entities></Entities>
+        <Entities>
+            <Entity
+             name="TestResultData"
+             type="DataShape">
+                <VisibilityPermissions>
+                    <Visibility></Visibility>
+                </VisibilityPermissions>
+                <DesignTimePermissions>
+                    <Create></Create>
+                    <Read></Read>
+                    <Update></Update>
+                    <Delete></Delete>
+                    <Metadata></Metadata>
+                </DesignTimePermissions>
+                <RunTimePermissions></RunTimePermissions>
+            </Entity>
+        </Entities>
     </DataShapes>
     <ThingShapes>
         <VisibilityPermissions>
@@ -274,7 +290,24 @@
             <Metadata></Metadata>
         </DesignTimePermissions>
         <RunTimePermissions></RunTimePermissions>
-        <Entities></Entities>
+        <Entities>
+            <Entity
+             name="TestingTS"
+             type="ThingShape">
+                <VisibilityPermissions>
+                    <Visibility></Visibility>
+                </VisibilityPermissions>
+                <DesignTimePermissions>
+                    <Create></Create>
+                    <Read></Read>
+                    <Update></Update>
+                    <Delete></Delete>
+                    <Metadata></Metadata>
+                </DesignTimePermissions>
+                <RunTimePermissions></RunTimePermissions>
+                <RunTimeInstancePermissions></RunTimeInstancePermissions>
+            </Entity>
+        </Entities>
     </ThingShapes>
     <ThingPackages>
         <VisibilityPermissions>
@@ -410,7 +443,23 @@
             <Metadata></Metadata>
         </DesignTimePermissions>
         <RunTimePermissions></RunTimePermissions>
-        <Entities></Entities>
+        <Entities>
+            <Entity
+             name="DevOpsAppKey"
+             type="ApplicationKey">
+                <VisibilityPermissions>
+                    <Visibility></Visibility>
+                </VisibilityPermissions>
+                <DesignTimePermissions>
+                    <Create></Create>
+                    <Read></Read>
+                    <Update></Update>
+                    <Delete></Delete>
+                    <Metadata></Metadata>
+                </DesignTimePermissions>
+                <RunTimePermissions></RunTimePermissions>
+            </Entity>
+        </Entities>
     </ApplicationKeys>
     <Dashboards>
         <VisibilityPermissions>
@@ -780,7 +829,7 @@
         <RunTimePermissions></RunTimePermissions>
         <Entities>
             <Entity
-             name="AdiDevOps"
+             name="DevOps"
              type="Project">
                 <VisibilityPermissions>
                     <Visibility></Visibility>
@@ -1136,7 +1185,7 @@
         <RunTimePermissions></RunTimePermissions>
         <Entities>
             <Entity
-             name="GitDevOpsThing"
+             name="TestExample1"
              type="Thing">
                 <VisibilityPermissions>
                     <Visibility></Visibility>
@@ -1151,7 +1200,7 @@
                 <RunTimePermissions></RunTimePermissions>
             </Entity>
             <Entity
-             name="TestAdiResult"
+             name="DeploymentManagerThing"
              type="Thing">
                 <VisibilityPermissions>
                     <Visibility></Visibility>
@@ -1166,7 +1215,7 @@
                 <RunTimePermissions></RunTimePermissions>
             </Entity>
             <Entity
-             name="Thing1"
+             name="DeploymentRepository"
              type="Thing">
                 <VisibilityPermissions>
                     <Visibility></Visibility>
@@ -1181,22 +1230,7 @@
                 <RunTimePermissions></RunTimePermissions>
             </Entity>
             <Entity
-             name="Thing2"
-             type="Thing">
-                <VisibilityPermissions>
-                    <Visibility></Visibility>
-                </VisibilityPermissions>
-                <DesignTimePermissions>
-                    <Create></Create>
-                    <Read></Read>
-                    <Update></Update>
-                    <Delete></Delete>
-                    <Metadata></Metadata>
-                </DesignTimePermissions>
-                <RunTimePermissions></RunTimePermissions>
-            </Entity>
-            <Entity
-             name="GitThing"
+             name="TestResultsDT"
              type="Thing">
                 <VisibilityPermissions>
                     <Visibility></Visibility>

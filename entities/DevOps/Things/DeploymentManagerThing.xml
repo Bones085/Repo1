@@ -1,0 +1,1077 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Entities
+ build="b2219"
+ majorVersion="8"
+ minorVersion="4"
+ modelPersistenceProviderPackage="PostgresPersistenceProviderPackage"
+ revision="3"
+ schemaVersion="1041"
+ universal="password">
+    <Things>
+        <Thing
+         description=""
+         documentationContent=""
+         effectiveThingPackage="ConfiguredThing"
+         enabled="true"
+         homeMashup=""
+         identifier=""
+         lastModifiedDate="2019-10-15T07:54:19.616-04:00"
+         name="DeploymentManagerThing"
+         projectName="DevOps"
+         published="false"
+         tags=""
+         thingTemplate="GenericThing"
+         valueStream="">
+            <avatar></avatar>
+            <DesignTimePermissions>
+                <Create></Create>
+                <Read></Read>
+                <Update></Update>
+                <Delete></Delete>
+                <Metadata></Metadata>
+            </DesignTimePermissions>
+            <RunTimePermissions></RunTimePermissions>
+            <VisibilityPermissions>
+                <Visibility></Visibility>
+            </VisibilityPermissions>
+            <ConfigurationTableDefinitions></ConfigurationTableDefinitions>
+            <ConfigurationTables></ConfigurationTables>
+            <ThingShape>
+                <PropertyDefinitions>
+                    <PropertyDefinition
+                     aspect.cacheTime="0.0"
+                     aspect.dataChangeType="VALUE"
+                     aspect.defaultValue="DevOpsAppKey"
+                     aspect.isPersistent="true"
+                     baseType="STRING"
+                     category=""
+                     description=""
+                     isLocalOnly="false"
+                     name="AppKey"
+                     ordinal="8"></PropertyDefinition>
+                    <PropertyDefinition
+                     aspect.cacheTime="0.0"
+                     aspect.dataChangeType="VALUE"
+                     aspect.defaultValue="/entities"
+                     aspect.isPersistent="true"
+                     baseType="STRING"
+                     category=""
+                     description=""
+                     isLocalOnly="false"
+                     name="EntitiesPath"
+                     ordinal="4"></PropertyDefinition>
+                    <PropertyDefinition
+                     aspect.cacheTime="0.0"
+                     aspect.dataChangeType="VALUE"
+                     aspect.dataShape="EntityList"
+                     aspect.isPersistent="true"
+                     baseType="INFOTABLE"
+                     category=""
+                     description=""
+                     isLocalOnly="false"
+                     name="Extensions"
+                     ordinal="10"></PropertyDefinition>
+                    <PropertyDefinition
+                     aspect.cacheTime="0.0"
+                     aspect.dataChangeType="VALUE"
+                     aspect.defaultValue="/extensions"
+                     aspect.isPersistent="true"
+                     baseType="STRING"
+                     category=""
+                     description=""
+                     isLocalOnly="false"
+                     name="ExtensionsPath"
+                     ordinal="3"></PropertyDefinition>
+                    <PropertyDefinition
+                     aspect.cacheTime="0.0"
+                     aspect.dataChangeType="VALUE"
+                     aspect.isPersistent="true"
+                     aspect.thingTemplate="GitBackupTemplate"
+                     baseType="THINGNAME"
+                     category=""
+                     description=""
+                     isLocalOnly="false"
+                     name="GitThingName"
+                     ordinal="10"></PropertyDefinition>
+                    <PropertyDefinition
+                     aspect.cacheTime="0.0"
+                     aspect.dataChangeType="VALUE"
+                     aspect.defaultValue="/permissions"
+                     aspect.isPersistent="true"
+                     baseType="STRING"
+                     category=""
+                     description=""
+                     isLocalOnly="false"
+                     name="PermissionsPath"
+                     ordinal="6"></PropertyDefinition>
+                    <PropertyDefinition
+                     aspect.cacheTime="0.0"
+                     aspect.dataChangeType="VALUE"
+                     aspect.defaultValue="AdiDevOps"
+                     aspect.isPersistent="true"
+                     baseType="STRING"
+                     category=""
+                     description=""
+                     isLocalOnly="false"
+                     name="ProjectName"
+                     ordinal="5"></PropertyDefinition>
+                    <PropertyDefinition
+                     aspect.cacheTime="0.0"
+                     aspect.dataChangeType="VALUE"
+                     aspect.defaultValue="/sysobj"
+                     aspect.isPersistent="true"
+                     baseType="STRING"
+                     category=""
+                     description=""
+                     isLocalOnly="false"
+                     name="SystemObjectsPath"
+                     ordinal="7"></PropertyDefinition>
+                    <PropertyDefinition
+                     aspect.cacheTime="0.0"
+                     aspect.dataChangeType="VALUE"
+                     aspect.defaultValue="Applications:DevOps"
+                     aspect.isPersistent="true"
+                     baseType="STRING"
+                     category=""
+                     description=""
+                     isLocalOnly="false"
+                     name="TagSystemObjects"
+                     ordinal="9"></PropertyDefinition>
+                </PropertyDefinitions>
+                <ServiceDefinitions>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description=""
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="CleanExtensions">
+                        <ResultType
+                         baseType="NOTHING"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions></ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description=""
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="ExportEntitiesToSourceControl">
+                        <ResultType
+                         baseType="NOTHING"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions>
+                            <FieldDefinition
+                             baseType="DATETIME"
+                             description=""
+                             name="start"
+                             ordinal="1"></FieldDefinition>
+                        </ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description=""
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="ExportExtensions">
+                        <ResultType
+                         baseType="NOTHING"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions></ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description=""
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="ExportSystemObjectsLocTables">
+                        <ResultType
+                         baseType="NOTHING"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions>
+                            <FieldDefinition
+                             aspect.defaultValue="http://localhost"
+                             baseType="STRING"
+                             description=""
+                             name="host"
+                             ordinal="1"></FieldDefinition>
+                        </ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description=""
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="ExportUserPermissions">
+                        <ResultType
+                         baseType="NOTHING"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions></ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description=""
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="GetDeploymentRepository">
+                        <ResultType
+                         baseType="STRING"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions></ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description=""
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="ImportApplication">
+                        <ResultType
+                         baseType="STRING"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description=""
+                             name="host"
+                             ordinal="1"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="BOOLEAN"
+                             description=""
+                             name="installExtensions"
+                             ordinal="2"></FieldDefinition>
+                        </ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description=""
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="ImportEntitiesFromSourceControl">
+                        <ResultType
+                         baseType="NOTHING"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions></ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description=""
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="ImportSysObjects">
+                        <ResultType
+                         baseType="NOTHING"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description=""
+                             name="host"
+                             ordinal="1"></FieldDefinition>
+                        </ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description=""
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="ImportUserPermissions">
+                        <ResultType
+                         baseType="NOTHING"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions></ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description=""
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="InstallExtensionsFromRepository">
+                        <ResultType
+                         baseType="NOTHING"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description=""
+                             name="host"
+                             ordinal="1"></FieldDefinition>
+                        </ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description=""
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="PackageApplication">
+                        <ResultType
+                         baseType="STRING"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions>
+                            <FieldDefinition
+                             baseType="BOOLEAN"
+                             description=""
+                             name="exportExtensions"
+                             ordinal="2"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description=""
+                             name="hostName"
+                             ordinal="1"></FieldDefinition>
+                        </ParameterDefinitions>
+                    </ServiceDefinition>
+                </ServiceDefinitions>
+                <EventDefinitions></EventDefinitions>
+                <ServiceMappings></ServiceMappings>
+                <ServiceImplementations>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="CleanExtensions">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             description=""
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        var deploymentRep = me.GetDeploymentRepository();
+                                        var existingExtensions = Things[deploymentRep].GetFileListing({
+                                            path: me.ExtensionsPath /* STRING */ ,
+                                            nameMask: "*.zip" /* STRING */
+                                        });
+                                        var lengthUsedExt = me.Extensions.getRowCount();
+                                        for each (var extension in existingExtensions.rows) {
+                                            //This gets the filename of the extension, in the format of Autocomplete_1.0.37.0_MinTW6.0.1.zip
+                                            var extensionFileName = extension.name;
+                                            if (lengthUsedExt === 0) {
+                                            //if the length is 0, do not remove any extension
+                                            } else {
+                                               var isExtensionFileAllowed = false;
+                                                for (var y = 0; y < lengthUsedExt; y++) {
+                                                    //this gets the name of the Permitted Extension in the format of Autocomplete
+                                                    var permittedExtension = me.Extensions.rows[y].name;
+                                                   //if the existing file on disk contains the name of the permitted file
+                                                    if (extensionFileName.indexOf(permittedExtension) >= 0) {
+                                                        isExtensionFileAllowed = true;
+                                                    }
+                                                }
+                                                  if (isExtensionFileAllowed === false) {
+                                               Things[deploymentRep].DeleteFile({
+                                                            path: me.ExtensionsPath + "/" + extensionFileName /* STRING */
+                                                        });
+                                               }
+                                            }
+                                        }
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="ExportEntitiesToSourceControl">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             description=""
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        var params = {
+                                        	path: me.EntitiesPath /* STRING */,
+                                        	endDate: new Date() /* DATETIME */,
+                                        	includeDependents: true /* BOOLEAN */,
+                                        	repositoryName:   me.GetDeploymentRepository(),
+                                        	projectName: me.ProjectName /* PROJECTNAME */,
+                                        	startDate: start /* DATETIME */,
+                                        };
+                                        
+                                        // no return
+                                        Resources["SourceControlFunctions"].ExportSourceControlledEntities(params);
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="ExportExtensions">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             description=""
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        // result: BOOLEAN
+                                        var result =  Resources["ExtensionsExport"].ExportExtensionsToRepository({
+                                        	repositoryPath: me.ExtensionsPath /* STRING */,
+                                        	repositoryName: me.GetDeploymentRepository() /* THINGNAME */,
+                                        	overwrite: true /* BOOLEAN */
+                                        });
+                                        //service will remove the extensions that are not mentioned in the Extensions infotable
+                                        //extensions will not be removed if infotable is empty
+                                         me.CleanExtensions();
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="ExportSystemObjectsLocTables">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             description=""
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        //(1) delete any files previously exported on this path
+                                        // result: INFOTABLE dataShape: "FileSystemFile"
+                                        var deploymentRepository = me.GetDeploymentRepository(); 
+                                        var files =  Things[deploymentRepository].GetFileListing({
+                                        	path: me.SystemObjectsPath /* STRING */,
+                                        });
+                                        for each (var file in files.rows) {
+                                        	Things[deploymentRepository].DeleteFile({
+                                        		path: file.path /* STRING */
+                                        	});
+                                        }
+                                        var headers = {"Content-Type" : "multipart/form-data", 
+                                                       "Accept" : "application/json", 
+                                                       "X-XSRF-TOKEN": "TWX-XSRF-TOKEN-VALUE", 
+                                                       "appKey": ApplicationKeys[me.AppKey].GetKeyID()
+                                                      };
+                                        var url = host + "/Thingworx/Exporter?Accept=text/xml&includeDependents=false&path=/" + 
+                                            me.SystemObjectsPath + "&repositoryName=" + Things[deploymentRepository].name + "&searchTags=" + me.TagSystemObjects;
+                                        
+                                        Resources["ContentLoaderFunctions"].GetText({
+                                        		headers: headers /* JSON */,
+                                        		url: url /* STRING */
+                                        	});
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="ExportUserPermissions">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             description=""
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        var params = {
+                                        	path: "/permissions" /* STRING */,
+                                        	fileName: "permissions.xml" /* STRING */,
+                                        	includeCollectionPermissions: true /* BOOLEAN */,
+                                        	includeDependents: true /* BOOLEAN */,
+                                        	includeEntityPermissions: true /* BOOLEAN */,
+                                        	repositoryName: me.GetDeploymentRepository() /* THINGNAME */,
+                                        	projectName: me.ProjectName /* PROJECTNAME */,
+                                        	tags: undefined /* TAGS */
+                                        };
+                                        
+                                        // no return
+                                        Resources["CollectionFunctions"].ExportUserPermissions(params);
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="GetDeploymentRepository">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             description=""
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        var table =  Things[me.GitThingName].GetConfigurationTable({
+                                        	tableName: "Configuration" /* STRING */
+                                        });
+                                        
+                                        var result = table.rows[0].FileRepository;
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="ImportApplication">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             description=""
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        try {
+                                            var result; 
+                                            //1. Pull request to the git repository
+                                            Things[me.GitThingName].Pull({
+                                            	Force: true /* BOOLEAN */
+                                            });
+                                            //2. install extensions if installExtensions is set to true
+                                            if (installExtensions) {
+                                                me.InstallExtensionsFromRepository({
+                                                	host: host /* STRING */
+                                                });
+                                            }
+                                            //3. import entities from source control
+                                             me.ImportEntitiesFromSourceControl();
+                                            //4. import user permissions
+                                             me.ImportUserPermissions();
+                                            //5. import system objects and location tables
+                                             me.ImportSysObjects({
+                                            	host: host /* STRING */
+                                            });
+                                            result = "Success"; 
+                                        } catch (err) {
+                                            result = "Error " + err; 
+                                            logger.error(result); 
+                                        }
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="ImportEntitiesFromSourceControl">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             description=""
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        var params = {
+                                        	path: me.EntitiesPath /* STRING */,
+                                        	useDefaultDataProvider: true /* BOOLEAN */,
+                                        	withSubsystems: true /* BOOLEAN */,
+                                        	repositoryName: me.GetDeploymentRepository() /* THINGNAME */
+                                        };
+                                        
+                                        // no return
+                                        Resources["SourceControlFunctions"].ImportSourceControlledEntities(params);
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="ImportSysObjects">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             description=""
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        var targetURL = host + "/Thingworx/Importer?IgnoreBadValueStreamData=false&WithSubsystems=true&purpose=import&usedefaultdataprovider=false";
+                                        // result: INFOTABLE dataShape: "FileSystemFile"
+                                        var twRep = me.GetDeploymentRepository(); 
+                                        
+                                        var entities = Things[twRep].ListFiles({ path: me.SystemObjectsPath /* STRING */});
+                                        var appKey = ApplicationKeys[me.AppKey].GetKeyID();
+                                        for each (var entity in entities.rows) {  
+                                            try {
+                                                var params = {
+                                                	headers: {"appKey" : appKey, 'x-thingworx-session': 'true', 'X-XSRF-TOKEN': 'TWX-XSRF-TOKEN-VALUE'  } /* JSON */,
+                                                	repository: twRep/* STRING */,
+                                                    url: targetURL /* STRING */,
+                                                    pathOnRepository: entity.path /* STRING */,
+                                                };
+                                                
+                                               Resources["ContentLoaderFunctions"].PostMultipart(params);   
+                                            } catch (err) {
+                                                logger.error ("Error importing file " + entity.path + " with error message " + err) ; 
+                                            }
+                                        }
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="ImportUserPermissions">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             description=""
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        var params = {
+                                        	path: me.PermissionsPath /* STRING */,
+                                        	fileName: "permissions.xml" /* STRING */,
+                                        	repositoryName: me.GetDeploymentRepository() /* THINGNAME */
+                                        };
+                                        
+                                        // no return
+                                        Resources["CollectionFunctions"].ImportUserPermissions(params);
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="InstallExtensionsFromRepository">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             description=""
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        var targetURL = host + "/Thingworx/ExtensionPackageUploader?purpose=import";
+                                        // result: INFOTABLE dataShape: "FileSystemFile"
+                                        var twRep = me.GetDeploymentRepository(); 
+                                        var twRepPath = me.ExtensionsPath ;
+                                        var extensions = Things[twRep].ListFiles({ path: twRepPath /* STRING */});
+                                        //optional part, for sorting the extensions in the folder based on their name
+                                        var sort = new Object();
+                                        sort.name = "name";
+                                        sort.ascending = true;
+                                        extensions.Sort(sort);
+                                        
+                                        var appKey = ApplicationKeys[me.AppKey].GetKeyID(); 
+                                        for each (var extension in extensions.rows) {  
+                                            try {
+                                                    var params = {
+                                                    	headers: {"appKey" : appKey, 'X-XSRF-TOKEN': 'TWX-XSRF-TOKEN-VALUE'  } /* JSON */,
+                                                    	repository: twRep/* STRING */,
+                                                        url: targetURL /* STRING */,
+                                                        pathOnRepository: extension.path /* STRING */,
+                                                        ignoreSSLErrors: true /* BOOLEAN */
+                                                    };
+                                                    
+                                                   Resources["ContentLoaderFunctions"].PostMultipart(params);           
+                                            } catch (err) {
+                                                logger.error ("Error installing extension " + extension.path + " with error message " + err) ; 
+                                            }
+                                        }
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="PackageApplication">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             description=""
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        try {
+                                            var result; 
+                                            //1. Extensions will be exported if exportExtensions is set to true
+                                            if (exportExtensions) {
+                                            	me.ExportExtensions();
+                                            }
+                                            //2. entities will be exported to source control
+                                            me.ExportEntitiesToSourceControl({
+                                            	start: undefined /* DATETIME */
+                                            });
+                                            //3. user permissions will be exported 
+                                             me.ExportUserPermissions();
+                                            //4. tagged system objectes will be exported
+                                             me.ExportSystemObjectsLocTables({
+                                            		host: hostName /* STRING */
+                                            	});
+                                            //5. Push all the entities, extensions, user permissions to the Git repository
+                                            Things[me.GitThingName].Push({
+                                            	Message: "Update from Jenkins" /* STRING */
+                                            });
+                                            //Result needs to be "Success" as it will be validated in Jenkins
+                                        	 result = "Success"; 
+                                        } catch (err) {
+                                            result  = "Error " + err; 
+                                            logger.error(result); 
+                                        }
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                </ServiceImplementations>
+                <Subscriptions></Subscriptions>
+            </ThingShape>
+            <PropertyBindings></PropertyBindings>
+            <RemotePropertyBindings></RemotePropertyBindings>
+            <RemoteServiceBindings></RemoteServiceBindings>
+            <RemoteEventBindings></RemoteEventBindings>
+            <AlertConfigurations>
+                <AlertDefinitions
+                 name="AppKey"></AlertDefinitions>
+                <AlertDefinitions
+                 name="EntitiesPath"></AlertDefinitions>
+                <AlertDefinitions
+                 name="Extensions"></AlertDefinitions>
+                <AlertDefinitions
+                 name="ExtensionsPath"></AlertDefinitions>
+                <AlertDefinitions
+                 name="GitThingName"></AlertDefinitions>
+                <AlertDefinitions
+                 name="PermissionsPath"></AlertDefinitions>
+                <AlertDefinitions
+                 name="ProjectName"></AlertDefinitions>
+                <AlertDefinitions
+                 name="SystemObjectsPath"></AlertDefinitions>
+                <AlertDefinitions
+                 name="TagSystemObjects"></AlertDefinitions>
+            </AlertConfigurations>
+            <ImplementedShapes></ImplementedShapes>
+            <ThingProperties>
+                <ProjectName>
+                    <Value>
+                    <![CDATA[
+                    DevOps
+                    ]]>
+                    </Value>
+                    <Timestamp>2019-10-15T07:54:11.624-04:00</Timestamp>
+                    <Quality>GOOD</Quality>
+                </ProjectName>
+                <TagSystemObjects>
+                    <Value>
+                    <![CDATA[
+                    Applications:DevOps
+                    ]]>
+                    </Value>
+                    <Timestamp>2019-09-11T10:03:15.282-04:00</Timestamp>
+                    <Quality>GOOD</Quality>
+                </TagSystemObjects>
+                <SystemObjectsPath>
+                    <Value>
+                    <![CDATA[
+                    /sysobj
+                    ]]>
+                    </Value>
+                    <Timestamp>2019-09-11T10:03:15.282-04:00</Timestamp>
+                    <Quality>GOOD</Quality>
+                </SystemObjectsPath>
+                <AppKey>
+                    <Value>
+                    <![CDATA[
+                    DevOpsAppKey
+                    ]]>
+                    </Value>
+                    <Timestamp>2019-09-11T10:03:15.283-04:00</Timestamp>
+                    <Quality>GOOD</Quality>
+                </AppKey>
+                <Extensions>
+                    <Value>
+                        <infoTable>
+                            <DataShape>
+                                <FieldDefinitions>
+                                    <FieldDefinition
+                                     baseType="STRING"
+                                     description="Entity description"
+                                     name="description"
+                                     ordinal="2"></FieldDefinition>
+                                    <FieldDefinition
+                                     aspect.isPrimaryKey="true"
+                                     baseType="STRING"
+                                     description="Entity name"
+                                     name="name"
+                                     ordinal="1"></FieldDefinition>
+                                </FieldDefinitions>
+                            </DataShape>
+                            <Rows></Rows>
+                        </infoTable>
+                    </Value>
+                    <Timestamp>2019-07-18T05:33:07.349-04:00</Timestamp>
+                    <Quality>GOOD</Quality>
+                </Extensions>
+                <GitThingName>
+                    <Value>
+                    <![CDATA[
+                    GitBackupThing
+                    ]]>
+                    </Value>
+                    <Timestamp>2019-10-15T07:54:45.315-04:00</Timestamp>
+                    <Quality>GOOD</Quality>
+                </GitThingName>
+                <PermissionsPath>
+                    <Value>
+                    <![CDATA[
+                    /permissions
+                    ]]>
+                    </Value>
+                    <Timestamp>2019-09-11T10:03:15.283-04:00</Timestamp>
+                    <Quality>GOOD</Quality>
+                </PermissionsPath>
+                <EntitiesPath>
+                    <Value>
+                    <![CDATA[
+                    /entities
+                    ]]>
+                    </Value>
+                    <Timestamp>2019-09-11T10:03:15.284-04:00</Timestamp>
+                    <Quality>GOOD</Quality>
+                </EntitiesPath>
+                <ExtensionsPath>
+                    <Value>
+                    <![CDATA[
+                    /extensions
+                    ]]>
+                    </Value>
+                    <Timestamp>2019-09-11T10:03:15.285-04:00</Timestamp>
+                    <Quality>GOOD</Quality>
+                </ExtensionsPath>
+            </ThingProperties>
+        </Thing>
+    </Things>
+</Entities>
