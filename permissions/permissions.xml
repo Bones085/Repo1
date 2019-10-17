@@ -780,7 +780,7 @@
         <RunTimePermissions></RunTimePermissions>
         <Entities>
             <Entity
-             name="testproj"
+             name="AdiDevOps"
              type="Project">
                 <VisibilityPermissions>
                     <Visibility></Visibility>
@@ -1136,7 +1136,6 @@
         <RunTimePermissions></RunTimePermissions>
         <Entities>
             <Entity
-<<<<<<< HEAD
              name="SheetalTest"
              type="Thing">
                 <VisibilityPermissions>
@@ -1258,9 +1257,21 @@
             </Entity>
             <Entity
              name="GitThing"
-=======
-             name="TestAdiResult2"
->>>>>>> branch 'master' of https://github.com/Bones085/Repo1
+             type="Thing">
+                <VisibilityPermissions>
+                    <Visibility></Visibility>
+                </VisibilityPermissions>
+                <DesignTimePermissions>
+                    <Create></Create>
+                    <Read></Read>
+                    <Update></Update>
+                    <Delete></Delete>
+                    <Metadata></Metadata>
+                </DesignTimePermissions>
+                <RunTimePermissions></RunTimePermissions>
+            </Entity>
+            <Entity
+             name="TestThingForImport"
              type="Thing">
                 <VisibilityPermissions>
                     <Visibility></Visibility>
