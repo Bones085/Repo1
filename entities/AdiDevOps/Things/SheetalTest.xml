@@ -15,12 +15,8 @@
          enabled="true"
          homeMashup=""
          identifier=""
-<<<<<<< HEAD
-         lastModifiedDate="2019-09-18T14:11:55.164Z"
-=======
-         lastModifiedDate="2019-10-16T10:29:09.989-04:00"
->>>>>>> branch 'master' of https://github.com/Bones085/Repo1
-         name="TestAdiResult"
+         lastModifiedDate="2019-10-17T07:39:31.950-04:00"
+         name="SheetalTest"
          projectName="AdiDevOps"
          published="false"
          tags=""
@@ -42,25 +38,7 @@
             <ConfigurationTables></ConfigurationTables>
             <ThingShape>
                 <PropertyDefinitions></PropertyDefinitions>
-                <ServiceDefinitions>
-                    <ServiceDefinition
-                     aspect.isAsync="false"
-                     category=""
-                     description=""
-                     isAllowOverride="false"
-                     isLocalOnly="false"
-                     isOpen="false"
-                     isPrivate="false"
-                     name="search">
-                        <ResultType
-                         aspect.dataShape="SpotlightSearch"
-                         baseType="INFOTABLE"
-                         description=""
-                         name="result"
-                         ordinal="0"></ResultType>
-                        <ParameterDefinitions></ParameterDefinitions>
-                    </ServiceDefinition>
-                </ServiceDefinitions>
+                <ServiceDefinitions></ServiceDefinitions>
                 <EventDefinitions></EventDefinitions>
                 <ServiceMappings></ServiceMappings>
                 <ServiceImplementations>
@@ -87,19 +65,34 @@
                                     <Row>
                                         <code>
                                         <![CDATA[
-                                        //1. Initializing the test data. Optional.
-                                        // me.CreateTestData();
-                                        
                                         //var params = {
                                         //    infoTableName : "InfoTable",
                                         //    dataShapeName : "TestResultData"
                                         //};
                                         //
-                                        //params = me.search();
-                                        //
                                         //// CreateInfoTableFromDataShape(infoTableName:STRING("InfoTable"), dataShapeName:STRING):INFOTABLE(TestResultData)
-                                        //// var result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape(params);
-                                        //var result = params;
+                                        //var result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape(params);
+                                        //
+                                        //// TestResultData entry object
+                                        //var FirstEntry = new Object();
+                                        //FirstEntry.comments = "test result that passed the verification"; // STRING
+                                        //FirstEntry.inputParams = {"name": "Mike"}; // JSON
+                                        //FirstEntry.expectedOutput = {"name": "Mike"}; //JSON
+                                        //FirstEntry.passed = true; // BOOLEAN
+                                        //FirstEntry.testName = "Test for UserName Passed"; // STRING [Primary Key]
+                                        //FirstEntry.timestamp = new Date(); // DATETIME [Primary Key]
+                                        //
+                                        //var SecondEntry = new Object();
+                                        //SecondEntry.comments = "test result that failed the verification"; // STRING
+                                        //SecondEntry.inputParams = {"name": "John"}; // JSON
+                                        //SecondEntry.expectedOutput = {"name": "Mike"}; // JSON
+                                        //SecondEntry.passed = false; // BOOLEAN
+                                        //SecondEntry.testName = "Test for UserName Failed"; // STRING [Primary Key]
+                                        //SecondEntry.timestamp = new Date(); // DATETIME [Primary Key]
+                                        //
+                                        //result.AddRow(FirstEntry);
+                                        //result.AddRow(SecondEntry);
+                                        //
                                         
                                         var params = {
                                             infoTableName : "InfoTable",
@@ -119,57 +112,6 @@
                                         newEntry.timestamp = new Date(); // DATETIME [Primary Key]
                                         
                                         result.AddRow(newEntry);
-                                        ]]>
-                                        </code>
-                                    </Row>
-                                </Rows>
-                            </ConfigurationTable>
-                        </ConfigurationTables>
-                    </ServiceImplementation>
-                    <ServiceImplementation
-                     description=""
-                     handlerName="Script"
-                     name="search">
-                        <ConfigurationTables>
-                            <ConfigurationTable
-                             description=""
-                             isMultiRow="false"
-                             name="Script"
-                             ordinal="0">
-                                <DataShape>
-                                    <FieldDefinitions>
-                                        <FieldDefinition
-                                         baseType="STRING"
-                                         description="code"
-                                         name="code"
-                                         ordinal="0"></FieldDefinition>
-                                    </FieldDefinitions>
-                                </DataShape>
-                                <Rows>
-                                    <Row>
-                                        <code>
-                                        <![CDATA[
-                                        var params = {
-                                        	maxItems: undefined /* NUMBER */,
-                                        	searchExpression: undefined /* STRING */,
-                                        	types: undefined /* JSON */,
-                                        	withPermissions: undefined /* BOOLEAN */,
-                                        	endDate: undefined /* DATETIME */,
-                                        	aspects: undefined /* JSON */,
-                                        	excludedAspects: undefined /* JSON */,
-                                        	tags: undefined /* TAGS */,
-                                        	thingTemplates: undefined /* JSON */,
-                                        	searchDescriptions: undefined /* BOOLEAN */,
-                                        	thingShapes: undefined /* JSON */,
-                                        	sortBy: undefined /* STRING */,
-                                        	isAscending: undefined /* BOOLEAN */,
-                                        	projectName: 'AdiDevOps' /* PROJECTNAME */,
-                                        	maxSearchItems: undefined /* NUMBER */,
-                                        	startDate: undefined /* DATETIME */
-                                        };
-                                        
-                                        // result: INFOTABLE dataShape: SpotlightSearch
-                                        var result = Resources["SearchFunctions"].SpotlightSearch(params);
                                         ]]>
                                         </code>
                                     </Row>

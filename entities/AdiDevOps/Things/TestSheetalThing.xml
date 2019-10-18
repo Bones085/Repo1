@@ -15,12 +15,8 @@
          enabled="true"
          homeMashup=""
          identifier=""
-<<<<<<< HEAD
-         lastModifiedDate="2019-09-18T14:11:55.164Z"
-=======
-         lastModifiedDate="2019-10-16T10:29:09.989-04:00"
->>>>>>> branch 'master' of https://github.com/Bones085/Repo1
-         name="TestAdiResult"
+         lastModifiedDate="2019-10-16T10:29:06.719-04:00"
+         name="TestSheetalThing"
          projectName="AdiDevOps"
          published="false"
          tags=""
@@ -110,15 +106,24 @@
                                         var result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape(params);
                                         
                                         // TestResultData entry object
-                                        var newEntry = new Object();
-                                        newEntry.comments = "Comments1"; // STRING
-                                        newEntry.inputParams = {"name": "Mike"}; // JSON
-                                        newEntry.expectedOutput = {"name": "Mike"}; // JSON
-                                        newEntry.passed = true; // BOOLEAN
-                                        newEntry.testName = "Test Name Passed"; // STRING [Primary Key]
-                                        newEntry.timestamp = new Date(); // DATETIME [Primary Key]
+                                        var FirstEntry = new Object();
+                                        FirstEntry .comments = "Comments1"; // STRING
+                                        FirstEntry .inputParams = {"name": "Mike"}; // JSON
+                                        FirstEntry .expectedOutput = {"name": "Mike"}; // JSON
+                                        FirstEntry .passed = true; // BOOLEAN
+                                        FirstEntry .testName = "Test Name Passed1"; // STRING [Primary Key]
+                                        FirstEntry .timestamp = new Date(); // DATETIME [Primary Key]
                                         
-                                        result.AddRow(newEntry);
+                                        var SecondEntry = new Object();
+                                        SecondEntry .comments = "Comments1"; // STRING
+                                        SecondEntry .inputParams = {"name": "Mike"}; // JSON
+                                        SecondEntry .expectedOutput = {"name": "Mike"}; // JSON
+                                        SecondEntry .passed = true; // BOOLEAN
+                                        SecondEntry .testName = "Test Name Passed2"; // STRING [Primary Key]
+                                        SecondEntry .timestamp = new Date(); // DATETIME [Primary Key]
+                                        
+                                        result.AddRow(FirstEntry);
+                                        result.AddRow(SecondEntry);
                                         ]]>
                                         </code>
                                     </Row>

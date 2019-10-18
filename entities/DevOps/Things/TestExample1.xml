@@ -1,0 +1,433 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Entities
+ build="b2219"
+ majorVersion="8"
+ minorVersion="4"
+ modelPersistenceProviderPackage="PostgresPersistenceProviderPackage"
+ revision="3"
+ schemaVersion="1041"
+ universal="password">
+    <Things>
+        <Thing
+         description=""
+         documentationContent=""
+         effectiveThingPackage="ConfiguredThing"
+         enabled="true"
+         homeMashup=""
+         identifier=""
+         lastModifiedDate="2019-09-18T05:48:45.581-04:00"
+         name="TestExample1"
+         projectName="DevOps"
+         published="false"
+         tags=""
+         thingTemplate="GenericThing"
+         valueStream="">
+            <avatar></avatar>
+            <DesignTimePermissions>
+                <Create></Create>
+                <Read></Read>
+                <Update></Update>
+                <Delete></Delete>
+                <Metadata></Metadata>
+            </DesignTimePermissions>
+            <RunTimePermissions></RunTimePermissions>
+            <VisibilityPermissions>
+                <Visibility></Visibility>
+            </VisibilityPermissions>
+            <ConfigurationTableDefinitions></ConfigurationTableDefinitions>
+            <ConfigurationTables></ConfigurationTables>
+            <ThingShape>
+                <PropertyDefinitions>
+                    <PropertyDefinition
+                     aspect.cacheTime="0.0"
+                     aspect.dataChangeType="VALUE"
+                     aspect.dataShape="TestResultData"
+                     aspect.isPersistent="true"
+                     baseType="INFOTABLE"
+                     category=""
+                     description=""
+                     isLocalOnly="false"
+                     name="PendingTests"
+                     ordinal="2"></PropertyDefinition>
+                </PropertyDefinitions>
+                <ServiceDefinitions>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category="Test"
+                     description="General service for executing a test - needs to be overridden"
+                     isAllowOverride="true"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="ExecuteTest2">
+                        <ResultType
+                         aspect.dataShape="TestResultData"
+                         baseType="INFOTABLE"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions>
+                            <FieldDefinition
+                             baseType="JSON"
+                             description=""
+                             name="ExpectedOutput"
+                             ordinal="3"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="JSON"
+                             description=""
+                             name="InputParams"
+                             ordinal="2"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.dataShape="TestResultData"
+                             baseType="INFOTABLE"
+                             description=""
+                             name="PreviousTestResults"
+                             ordinal="4"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description=""
+                             name="TestName"
+                             ordinal="1"></FieldDefinition>
+                        </ParameterDefinitions>
+                    </ServiceDefinition>
+                </ServiceDefinitions>
+                <EventDefinitions></EventDefinitions>
+                <ServiceMappings></ServiceMappings>
+                <ServiceImplementations>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="CreateTestData">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             description=""
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        //If your tests require some data, override this service to create it 
+                                        var result = {};
+                                        result.tests = []; 
+                                        result.tests.push ({
+                                            "TestName": "AveragePowerConsumption", 
+                                            "InputParams": {"consumer1": 1200, "consumer2": 2000, "consumer3": 100},
+                                            "ExpectedOutput": {"result" : 1100 }
+                                        }); 
+                                        result.tests.push ({
+                                            "TestName": "EstEnoughPower", 
+                                            "InputParams": {"powerConsumed": 1200, "powerStored": 2000, "powerProduced": 5000},
+                                            "ExpectedOutput":  {"result" : false}   
+                                        }); 
+                                        //Depending on your application and use cases, this may imply inserting records into a database/third party system/ creating new Things, updating properties, etc
+                                        
+                                        
+                                        //As a suggestion, the result of this service could be a JSON representing the input params required for the ExecuteTest services
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="ExecuteTest">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             description=""
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        logger.debug("---Running test --- " + TestName) ; 
+                                        //execute your test here
+                                        //this may involve executing one or more services
+                                        // result: NUMBER
+                                        var avg =  Things["PowerSystemServices"].CalculateAveragePowerConsumed({
+                                        	consumer3: InputParams.consumer1 /* NUMBER */,
+                                        	consumer2: InputParams.consumer2 /* NUMBER */,
+                                        	consumer1: InputParams.consumer3 /* NUMBER */
+                                        });
+                                        
+                                        //compare output of the service with the "ExpectedOutput"
+                                        //mock calculation for the test result
+                                        var testResult = false; 
+                                        if (avg === ExpectedOutput.result) 
+                                          testResult = true; 
+                                        //Build the results infotable
+                                        PreviousTestResults.AddRow({
+                                            testName: TestName, 
+                                            inputParams: InputParams,
+                                            expectedOutput: ExpectedOutput,
+                                            timestamp: new Date(),
+                                            passed: testResult,
+                                            comments: testResult ? "passed" : ExpectedOutput.result
+                                        });
+                                        
+                                        //optionally store the results in a DataTable
+                                        var tags = new Array();
+                                        
+                                        var values = Things["TestResultsDT"].CreateValues();
+                                        values.comments = testResult ? "passed" : ExpectedOutput.resul; // STRING
+                                        values.inputParams = InputParams; // JSON
+                                        values.expectedOutput = ExpectedOutput; // JSON
+                                        values.passed = testResult; // BOOLEAN
+                                        values.testName = TestName; // STRING [Primary Key]
+                                        values.timestamp = new Date(); // DATETIME [Primary Key]
+                                        
+                                        // location:LOCATION
+                                        var location = new Object();
+                                        location.latitude = 0;
+                                        location.longitude = 0;
+                                        location.elevation = 0;
+                                        location.units ="WGS84";
+                                        
+                                        var params = {
+                                        	tags : tags,
+                                        	source : me.name,
+                                        	values : values,
+                                        	location : location
+                                        };
+                                        
+                                        // AddOrUpdateDataTableEntry(tags:TAGS, source:STRING("me.name"), values:INFOTABLE(TestResultsDT), location:LOCATION):STRING
+                                        var id = Things["TestResultsDT"].AddOrUpdateDataTableEntry(params);
+                                        var result = PreviousTestResults;
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="ExecuteTest2">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             description=""
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        logger.debug("---Running test --- " + TestName) ; 
+                                        //execute your test here
+                                        //this may involve executing one or more services
+                                        
+                                        var enoughPower =  Things["PowerSystemServices"].CheckEnoughPower12Hours({
+                                        	powerConsumed: InputParams.powerConsumed /* NUMBER */,
+                                        	powerStored: InputParams.powerStored /* NUMBER */,
+                                        	powerProduced: InputParams.powerProduced /* NUMBER */
+                                        });
+                                        
+                                        //compare output of the service with the "ExpectedOutput"
+                                        //mock calculation for the test result
+                                        var testResult = false; 
+                                        if (enoughPower === ExpectedOutput.result) 
+                                          testResult = true; 
+                                        //Build the results infotable
+                                        PreviousTestResults.AddRow({
+                                            testName: TestName, 
+                                            inputParams: InputParams,
+                                            expectedOutput: ExpectedOutput,
+                                            timestamp: new Date(),
+                                            passed: testResult,
+                                            comments: testResult ? "passed" : ExpectedOutput.result
+                                        });
+                                        
+                                        //optionally store the results in a DataTable
+                                        var tags = new Array();
+                                        
+                                        var values = Things["TestResultsDT"].CreateValues();
+                                        values.comments = testResult ? "passed" : ExpectedOutput.resul; // STRING
+                                        values.inputParams = InputParams; // JSON
+                                        values.expectedOutput = ExpectedOutput; // JSON
+                                        values.passed = testResult; // BOOLEAN
+                                        values.testName = TestName; // STRING [Primary Key]
+                                        values.timestamp = new Date(); // DATETIME [Primary Key]
+                                        
+                                        // location:LOCATION
+                                        var location = new Object();
+                                        location.latitude = 0;
+                                        location.longitude = 0;
+                                        location.elevation = 0;
+                                        location.units ="WGS84";
+                                        
+                                        var params = {
+                                        	tags : tags,
+                                        	source : me.name,
+                                        	values : values,
+                                        	location : location
+                                        };
+                                        
+                                        // AddOrUpdateDataTableEntry(tags:TAGS, source:STRING("me.name"), values:INFOTABLE(TestResultsDT), location:LOCATION):STRING
+                                        var id = Things["TestResultsDT"].AddOrUpdateDataTableEntry(params);
+                                        var result = PreviousTestResults;
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="RunAllTests">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             description=""
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        //1. Create test data 
+                                        var testData = me.CreateTestData();
+                                        
+                                        //2. Create a variable that will store all the results 
+                                        var prevTestResult= Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({
+                                            infoTableName : "InfoTable",
+                                            dataShapeName : "TestResultData"
+                                        });
+                                        
+                                        //3. Search all the services in the category Test and execute them.
+                                        //Each service accepts as an input the previous test results, and adds to that infotable its result
+                                        var iftbl_Tests =  me.GetServiceDefinitions({
+                                        	category: "Test" /* STRING */,
+                                        });
+                                        
+                                        for (var i = 0; i < iftbl_Tests.getRowCount(); i++) {
+                                            prevTestResult=me[iftbl_Tests.rows[i].name]({PreviousTestResults:prevTestResult,
+                                                                        TestName: testData.tests[i].TestName /* STRING */,
+                                        								InputParams: testData.tests[i].InputParams /* JSON */,
+                                        								ExpectedOutput: testData.tests[i].ExpectedOutput  /* JSON */});  
+                                        }
+                                        //4. delete test data - optional, in this case, the data is only in memory
+                                        //me.DeleteTestData();
+                                        result = prevTestResult;
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                </ServiceImplementations>
+                <Subscriptions></Subscriptions>
+            </ThingShape>
+            <PropertyBindings></PropertyBindings>
+            <RemotePropertyBindings></RemotePropertyBindings>
+            <RemoteServiceBindings></RemoteServiceBindings>
+            <RemoteEventBindings></RemoteEventBindings>
+            <AlertConfigurations>
+                <AlertDefinitions
+                 name="PendingTests"></AlertDefinitions>
+            </AlertConfigurations>
+            <ImplementedShapes>
+                <ImplementedShape
+                 name="TestingTS"
+                 type="ThingShape"></ImplementedShape>
+            </ImplementedShapes>
+            <ThingProperties>
+                <PendingTests>
+                    <Value>
+                        <infoTable>
+                            <DataShape>
+                                <FieldDefinitions>
+                                    <FieldDefinition
+                                     aspect.isPrimaryKey="false"
+                                     baseType="STRING"
+                                     description=""
+                                     name="comments"
+                                     ordinal="4"></FieldDefinition>
+                                    <FieldDefinition
+                                     aspect.isPrimaryKey="false"
+                                     baseType="JSON"
+                                     description=""
+                                     name="expectedOutput"
+                                     ordinal="6"></FieldDefinition>
+                                    <FieldDefinition
+                                     aspect.isPrimaryKey="false"
+                                     baseType="JSON"
+                                     description=""
+                                     name="inputParams"
+                                     ordinal="5"></FieldDefinition>
+                                    <FieldDefinition
+                                     aspect.isPrimaryKey="false"
+                                     baseType="BOOLEAN"
+                                     description=""
+                                     name="passed"
+                                     ordinal="3"></FieldDefinition>
+                                    <FieldDefinition
+                                     aspect.isPrimaryKey="true"
+                                     baseType="STRING"
+                                     description=""
+                                     name="testName"
+                                     ordinal="1"></FieldDefinition>
+                                    <FieldDefinition
+                                     aspect.isPrimaryKey="true"
+                                     baseType="DATETIME"
+                                     description=""
+                                     name="timestamp"
+                                     ordinal="2"></FieldDefinition>
+                                </FieldDefinitions>
+                            </DataShape>
+                            <Rows></Rows>
+                        </infoTable>
+                    </Value>
+                    <Timestamp>1969-12-31T19:00:00.000-05:00</Timestamp>
+                    <Quality>UNKNOWN</Quality>
+                </PendingTests>
+            </ThingProperties>
+        </Thing>
+    </Things>
+</Entities>

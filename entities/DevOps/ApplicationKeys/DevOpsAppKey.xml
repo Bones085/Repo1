@@ -7,21 +7,20 @@
  revision="3"
  schemaVersion="1041"
  universal="password">
-    <Projects>
-        <Project
-         dependsOn=""
+    <ApplicationKeys>
+        <ApplicationKey
+         clientName=""
          description=""
          documentationContent=""
+         expirationDate="2050-10-24T17:00:00.000-04:00"
          homeMashup=""
-<<<<<<< HEAD
-         lastModifiedDate="2019-09-11T14:14:31.968Z"
-=======
-         lastModifiedDate="2019-10-16T10:29:09.760-04:00"
->>>>>>> branch 'master' of https://github.com/Bones085/Repo1
-         name="AdiDevOps"
-         packageVersion="1.0.0"
-         projectName="AdiDevOps"
-         tags="">
+         ipWhitelist=""
+         keyId=""
+         lastModifiedDate="2019-09-11T10:03:15.215-04:00"
+         name="DevOpsAppKey"
+         projectName="DevOps"
+         tags=""
+         userNameReference="Administrator">
             <avatar></avatar>
             <DesignTimePermissions>
                 <Create></Create>
@@ -36,6 +35,6 @@
             </VisibilityPermissions>
             <ConfigurationTableDefinitions></ConfigurationTableDefinitions>
             <ConfigurationTables></ConfigurationTables>
-        </Project>
-    </Projects>
+        </ApplicationKey>
+    </ApplicationKeys>
 </Entities>

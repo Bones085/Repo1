@@ -15,7 +15,11 @@
          enabled="true"
          homeMashup=""
          identifier=""
+<<<<<<< HEAD
          lastModifiedDate="2019-09-12T09:52:23.379Z"
+=======
+         lastModifiedDate="2019-10-16T10:29:10.002-04:00"
+>>>>>>> branch 'master' of https://github.com/Bones085/Repo1
          name="Thing1"
          projectName="AdiDevOps"
          published="false"

@@ -13,14 +13,10 @@
          description=""
          documentationContent=""
          homeMashup=""
-<<<<<<< HEAD
-         lastModifiedDate="2019-09-11T14:14:31.968Z"
-=======
-         lastModifiedDate="2019-10-16T10:29:09.760-04:00"
->>>>>>> branch 'master' of https://github.com/Bones085/Repo1
-         name="AdiDevOps"
+         lastModifiedDate="2019-09-11T10:03:15.227-04:00"
+         name="DevOps"
          packageVersion="1.0.0"
-         projectName="AdiDevOps"
+         projectName="DevOps"
          tags="">
             <avatar></avatar>
             <DesignTimePermissions>

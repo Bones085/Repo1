@@ -1,0 +1,463 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Entities
+ build="b2219"
+ majorVersion="8"
+ minorVersion="4"
+ modelPersistenceProviderPackage="PostgresPersistenceProviderPackage"
+ revision="3"
+ schemaVersion="1041"
+ universal="password">
+    <ThingShapes>
+        <ThingShape
+         className=""
+         description=""
+         documentationContent=""
+         homeMashup=""
+         lastModifiedDate="2019-09-11T10:03:15.176-04:00"
+         name="TestingTS"
+         projectName="DevOps"
+         tags="">
+            <PropertyDefinitions></PropertyDefinitions>
+            <ServiceDefinitions>
+                <ServiceDefinition
+                 aspect.isAsync="false"
+                 category=""
+                 description=""
+                 isAllowOverride="true"
+                 isLocalOnly="false"
+                 isOpen="false"
+                 isPrivate="false"
+                 name="CreateTestData">
+                    <ResultType
+                     baseType="JSON"
+                     description=""
+                     name="result"
+                     ordinal="0"></ResultType>
+                    <ParameterDefinitions></ParameterDefinitions>
+                </ServiceDefinition>
+                <ServiceDefinition
+                 aspect.isAsync="false"
+                 category=""
+                 description=""
+                 isAllowOverride="true"
+                 isLocalOnly="false"
+                 isOpen="false"
+                 isPrivate="false"
+                 name="DeleteTestData">
+                    <ResultType
+                     baseType="JSON"
+                     description=""
+                     name="result"
+                     ordinal="0"></ResultType>
+                    <ParameterDefinitions></ParameterDefinitions>
+                </ServiceDefinition>
+                <ServiceDefinition
+                 aspect.isAsync="false"
+                 category="Test"
+                 description="General service for executing a test - needs to be overridden"
+                 isAllowOverride="true"
+                 isLocalOnly="false"
+                 isOpen="false"
+                 isPrivate="false"
+                 name="ExecuteTest">
+                    <ResultType
+                     aspect.dataShape="TestResultData"
+                     baseType="INFOTABLE"
+                     description=""
+                     name="result"
+                     ordinal="0"></ResultType>
+                    <ParameterDefinitions>
+                        <FieldDefinition
+                         baseType="JSON"
+                         description=""
+                         name="ExpectedOutput"
+                         ordinal="3"></FieldDefinition>
+                        <FieldDefinition
+                         baseType="JSON"
+                         description=""
+                         name="InputParams"
+                         ordinal="2"></FieldDefinition>
+                        <FieldDefinition
+                         aspect.dataShape="TestResultData"
+                         baseType="INFOTABLE"
+                         description=""
+                         name="PreviousTestResults"
+                         ordinal="4"></FieldDefinition>
+                        <FieldDefinition
+                         baseType="STRING"
+                         description=""
+                         name="TestName"
+                         ordinal="1"></FieldDefinition>
+                    </ParameterDefinitions>
+                </ServiceDefinition>
+                <ServiceDefinition
+                 aspect.isAsync="false"
+                 category=""
+                 description=""
+                 isAllowOverride="false"
+                 isLocalOnly="false"
+                 isOpen="false"
+                 isPrivate="false"
+                 name="FormatTestResults">
+                    <ResultType
+                     baseType="HTML"
+                     description=""
+                     name="result"
+                     ordinal="0"></ResultType>
+                    <ParameterDefinitions>
+                        <FieldDefinition
+                         aspect.dataShape="TestResultData"
+                         baseType="INFOTABLE"
+                         description=""
+                         name="tests"
+                         ordinal="1"></FieldDefinition>
+                    </ParameterDefinitions>
+                </ServiceDefinition>
+                <ServiceDefinition
+                 aspect.isAsync="false"
+                 category=""
+                 description=""
+                 isAllowOverride="true"
+                 isLocalOnly="false"
+                 isOpen="false"
+                 isPrivate="false"
+                 name="RunAllTests">
+                    <ResultType
+                     aspect.dataShape="TestResultData"
+                     baseType="INFOTABLE"
+                     description=""
+                     name="result"
+                     ordinal="0"></ResultType>
+                    <ParameterDefinitions></ParameterDefinitions>
+                </ServiceDefinition>
+                <ServiceDefinition
+                 aspect.isAsync="false"
+                 category=""
+                 description=""
+                 isAllowOverride="false"
+                 isLocalOnly="false"
+                 isOpen="false"
+                 isPrivate="false"
+                 name="RunAllTestsFormatResult">
+                    <ResultType
+                     baseType="HTML"
+                     description=""
+                     name="result"
+                     ordinal="0"></ResultType>
+                    <ParameterDefinitions></ParameterDefinitions>
+                </ServiceDefinition>
+            </ServiceDefinitions>
+            <EventDefinitions></EventDefinitions>
+            <ServiceMappings></ServiceMappings>
+            <ServiceImplementations>
+                <ServiceImplementation
+                 description=""
+                 handlerName="Script"
+                 name="CreateTestData">
+                    <ConfigurationTables>
+                        <ConfigurationTable
+                         description=""
+                         isMultiRow="false"
+                         name="Script"
+                         ordinal="0">
+                            <DataShape>
+                                <FieldDefinitions>
+                                    <FieldDefinition
+                                     baseType="STRING"
+                                     description="code"
+                                     name="code"
+                                     ordinal="0"></FieldDefinition>
+                                </FieldDefinitions>
+                            </DataShape>
+                            <Rows>
+                                <Row>
+                                    <code>
+                                    <![CDATA[
+                                    //If your tests require some data, override this service to create it 
+                                    
+                                    //Depending on your application and use cases, this may imply inserting records into a database/third party system/ creating new Things, updating properties, etc
+                                    
+                                    
+                                    //As a suggestion, the result of this service could be a JSON representing the input params required for the ExecuteTest services
+                                    ]]>
+                                    </code>
+                                </Row>
+                            </Rows>
+                        </ConfigurationTable>
+                    </ConfigurationTables>
+                </ServiceImplementation>
+                <ServiceImplementation
+                 description=""
+                 handlerName="Script"
+                 name="DeleteTestData">
+                    <ConfigurationTables>
+                        <ConfigurationTable
+                         description=""
+                         isMultiRow="false"
+                         name="Script"
+                         ordinal="0">
+                            <DataShape>
+                                <FieldDefinitions>
+                                    <FieldDefinition
+                                     baseType="STRING"
+                                     description="code"
+                                     name="code"
+                                     ordinal="0"></FieldDefinition>
+                                </FieldDefinitions>
+                            </DataShape>
+                            <Rows>
+                                <Row>
+                                    <code>
+                                    <![CDATA[
+                                    //If your tests require some data, override this service to create it 
+                                    
+                                    //Depending on your application and use cases, this may imply inserting records into a database/third party system/ creating new Things, updating properties, etc
+                                    ]]>
+                                    </code>
+                                </Row>
+                            </Rows>
+                        </ConfigurationTable>
+                    </ConfigurationTables>
+                </ServiceImplementation>
+                <ServiceImplementation
+                 description=""
+                 handlerName="Script"
+                 name="ExecuteTest">
+                    <ConfigurationTables>
+                        <ConfigurationTable
+                         description=""
+                         isMultiRow="false"
+                         name="Script"
+                         ordinal="0">
+                            <DataShape>
+                                <FieldDefinitions>
+                                    <FieldDefinition
+                                     baseType="STRING"
+                                     description="code"
+                                     name="code"
+                                     ordinal="0"></FieldDefinition>
+                                </FieldDefinitions>
+                            </DataShape>
+                            <Rows>
+                                <Row>
+                                    <code>
+                                    <![CDATA[
+                                    logger.debug("---Running test --- " + TestName) ; 
+                                    //execute your tests here
+                                    //this may involve executing one or more services
+                                    
+                                    
+                                    //compare output of the service with the "ExpectedOutput"
+                                    //mock calculation for the test result
+                                    var testResult = (Math.random() > 0.5) ? true: false; 
+                                    //Build the results infotable
+                                    var params = {
+                                        infoTableName : "InfoTable",
+                                        dataShapeName : "TestResultData"
+                                    };
+                                    
+                                    // CreateInfoTableFromDataShape(infoTableName:STRING("InfoTable"), dataShapeName:STRING):INFOTABtrLE(TestResultData)
+                                    var result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape(params);
+                                    PreviousTestResults.AddRow({
+                                        testName: TestName, 
+                                        inputParams: InputParams,
+                                        expectedOutput: ExpectedOutput,
+                                        timestamp: new Date(),
+                                        passed: testResult,
+                                        comments: testResult ? "passed" : "failed"
+                                    });
+                                    
+                                    //optionally store the results in a DataTable
+                                    var tags = new Array();
+                                    
+                                    // values:INFOTABLE(Datashape: TestResultData)
+                                    values.comments = testResult ? "passed" : ExpectedOutput.result; // STRING
+                                    values.inputParams = InputParams; // JSON
+                                    values.expectedOutput = ExpectedOutput; // JSON
+                                    values.passed = testResult; // BOOLEAN
+                                    values.testName = TestName; // STRING [Primary Key]
+                                    values.timestamp = new Date(); // DATETIME [Primary Key]
+                                    
+                                    // location:LOCATION
+                                    var location = new Object();
+                                    location.latitude = 0;
+                                    location.longitude = 0;
+                                    location.elevation = 0;
+                                    location.units ="WGS84";
+                                    
+                                    var params = {
+                                    	tags : tags,
+                                    	source : me.name,
+                                    	values : values,
+                                    	location : location
+                                    };
+                                    
+                                    // AddOrUpdateDataTableEntry(tags:TAGS, source:STRING("me.name"), values:INFOTABLE(TestResultsDT), location:LOCATION):STRING
+                                    var id = Things["TestResultsDT"].AddOrUpdateDataTableEntry(params);
+                                    result = PreviousTestResults;
+                                    ]]>
+                                    </code>
+                                </Row>
+                            </Rows>
+                        </ConfigurationTable>
+                    </ConfigurationTables>
+                </ServiceImplementation>
+                <ServiceImplementation
+                 description=""
+                 handlerName="Script"
+                 name="FormatTestResults">
+                    <ConfigurationTables>
+                        <ConfigurationTable
+                         description=""
+                         isMultiRow="false"
+                         name="Script"
+                         ordinal="0">
+                            <DataShape>
+                                <FieldDefinitions>
+                                    <FieldDefinition
+                                     baseType="STRING"
+                                     description="code"
+                                     name="code"
+                                     ordinal="0"></FieldDefinition>
+                                </FieldDefinitions>
+                            </DataShape>
+                            <Rows>
+                                <Row>
+                                    <code>
+                                    <![CDATA[
+                                    var html = "<HTML><HEAD><TITLE>Execution Of RunAllTests</TITLE><LINK rel='Stylesheet' href='css/thingworxapi.css' type='text/css'></LINK><META http-equiv='Content-Type' content='text/html'></META><META http-equiv='cache-control' content='no-cache, no-store'></META><META http-equiv='expires' content='-1'></META><META http-equiv='pragma' content='no-cache, no-store'></META></HEAD><BODY><IMG SRC=\"css/ThingworxLogo.png\"/><BR/><H1>RunAllTests</H1>";
+                                    html += "<TABLE><TR><TH>Comments</TH><TH>Expected</TH><TH>Inputs</TH><TH>Passed</TH><TH>Test Name</TH><TH>Date and Time</TH></TR>"; 
+                                    
+                                    for each (var row in tests.rows) {
+                                        html += "<TR>"; 
+                                        html += "<TD>" + row.comments + "</TD>";
+                                         html += "<TD>" + row.expectedOutput + "</TD>";
+                                         html += "<TD>" + row.inputParams + "</TD>";
+                                         html += "<TD>" + row.passed + "</TD>";
+                                         html += "<TD>" + row.testName + "</TD>";
+                                         html += "<TD>" + row.timestamp + "</TD>";
+                                        html += "</TR>"; 
+                                    }
+                                    
+                                    html += "</TABLE></BODY></HTML>"; 
+                                    
+                                    var result = html;
+                                    ]]>
+                                    </code>
+                                </Row>
+                            </Rows>
+                        </ConfigurationTable>
+                    </ConfigurationTables>
+                </ServiceImplementation>
+                <ServiceImplementation
+                 description=""
+                 handlerName="Script"
+                 name="RunAllTests">
+                    <ConfigurationTables>
+                        <ConfigurationTable
+                         description=""
+                         isMultiRow="false"
+                         name="Script"
+                         ordinal="0">
+                            <DataShape>
+                                <FieldDefinitions>
+                                    <FieldDefinition
+                                     baseType="STRING"
+                                     description="code"
+                                     name="code"
+                                     ordinal="0"></FieldDefinition>
+                                </FieldDefinitions>
+                            </DataShape>
+                            <Rows>
+                                <Row>
+                                    <code>
+                                    <![CDATA[
+                                    //1. Initializing the test data. Optional.
+                                    me.CreateTestData();
+                                    
+                                    //2. Create a variable that will store all the results 
+                                    var prevTestResult= Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({
+                                        infoTableName : "InfoTable",
+                                        dataShapeName : "TestResultData"
+                                    });
+                                    
+                                    //3. Search all the services in the category Test and execute them.
+                                    //Each service accepts as an input the previous test results, and adds to that infotable its result
+                                    var iftbl_Tests =  me.GetServiceDefinitions({
+                                    	category: "Test" /* STRING */,
+                                    });
+                                    
+                                    for each (var test in iftbl_Tests.rows) {   
+                                        prevTestResult=me[test.name]({PreviousTestResults:prevTestResult});  
+                                    }
+                                    //4. delete test data
+                                    me.DeleteTestData();
+                                    result = prevTestResult;
+                                    ]]>
+                                    </code>
+                                </Row>
+                            </Rows>
+                        </ConfigurationTable>
+                    </ConfigurationTables>
+                </ServiceImplementation>
+                <ServiceImplementation
+                 description=""
+                 handlerName="Script"
+                 name="RunAllTestsFormatResult">
+                    <ConfigurationTables>
+                        <ConfigurationTable
+                         description=""
+                         isMultiRow="false"
+                         name="Script"
+                         ordinal="0">
+                            <DataShape>
+                                <FieldDefinitions>
+                                    <FieldDefinition
+                                     baseType="STRING"
+                                     description="code"
+                                     name="code"
+                                     ordinal="0"></FieldDefinition>
+                                </FieldDefinitions>
+                            </DataShape>
+                            <Rows>
+                                <Row>
+                                    <code>
+                                    <![CDATA[
+                                    // result: INFOTABLE dataShape: "TestResultData"
+                                    var result =  me.RunAllTests();
+                                    // result: HTML
+                                    result =  me.FormatTestResults({
+                                    	tests: result /* INFOTABLE */
+                                    });
+                                    ]]>
+                                    </code>
+                                </Row>
+                            </Rows>
+                        </ConfigurationTable>
+                    </ConfigurationTables>
+                </ServiceImplementation>
+            </ServiceImplementations>
+            <Subscriptions></Subscriptions>
+            <avatar></avatar>
+            <DesignTimePermissions>
+                <Create></Create>
+                <Read></Read>
+                <Update></Update>
+                <Delete></Delete>
+                <Metadata></Metadata>
+            </DesignTimePermissions>
+            <RunTimePermissions></RunTimePermissions>
+            <VisibilityPermissions>
+                <Visibility></Visibility>
+            </VisibilityPermissions>
+            <ConfigurationTableDefinitions></ConfigurationTableDefinitions>
+            <ConfigurationTables></ConfigurationTables>
+            <PropertyBindings></PropertyBindings>
+            <RemotePropertyBindings></RemotePropertyBindings>
+            <RemoteServiceBindings></RemoteServiceBindings>
+            <RemoteEventBindings></RemoteEventBindings>
+            <AlertConfigurations></AlertConfigurations>
+            <InstanceRunTimePermissions></InstanceRunTimePermissions>
+        </ThingShape>
+    </ThingShapes>
+</Entities>
