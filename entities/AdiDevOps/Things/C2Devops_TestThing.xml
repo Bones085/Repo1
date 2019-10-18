@@ -15,7 +15,7 @@
          enabled="true"
          homeMashup=""
          identifier=""
-         lastModifiedDate="2019-10-18T09:14:34.569Z"
+         lastModifiedDate="2019-10-18T11:18:40.668Z"
          name="C2Devops_TestThing"
          projectName="AdiDevOps"
          published="false"
@@ -143,7 +143,7 @@
                             </FileRepository>
                             <GitRepoURL>
                             <![CDATA[
-                            https://github.com/Vaibhav2700/TestRepo
+                            https://github.com/Vaibhav2700/Test18
                             ]]>
                             </GitRepoURL>
                             <Password></Password>
