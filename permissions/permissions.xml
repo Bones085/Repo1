@@ -1136,6 +1136,21 @@
         <RunTimePermissions></RunTimePermissions>
         <Entities>
             <Entity
+             name="C2Devops_TestingTSThing"
+             type="Thing">
+                <VisibilityPermissions>
+                    <Visibility></Visibility>
+                </VisibilityPermissions>
+                <DesignTimePermissions>
+                    <Create></Create>
+                    <Read></Read>
+                    <Update></Update>
+                    <Delete></Delete>
+                    <Metadata></Metadata>
+                </DesignTimePermissions>
+                <RunTimePermissions></RunTimePermissions>
+            </Entity>
+            <Entity
              name="GitDevOpsThing"
              type="Thing">
                 <VisibilityPermissions>
@@ -1182,6 +1197,21 @@
             </Entity>
             <Entity
              name="Thing2"
+             type="Thing">
+                <VisibilityPermissions>
+                    <Visibility></Visibility>
+                </VisibilityPermissions>
+                <DesignTimePermissions>
+                    <Create></Create>
+                    <Read></Read>
+                    <Update></Update>
+                    <Delete></Delete>
+                    <Metadata></Metadata>
+                </DesignTimePermissions>
+                <RunTimePermissions></RunTimePermissions>
+            </Entity>
+            <Entity
+             name="C2Devops_TestThing"
              type="Thing">
                 <VisibilityPermissions>
                     <Visibility></Visibility>
