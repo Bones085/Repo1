@@ -1226,6 +1226,21 @@
                 <RunTimePermissions></RunTimePermissions>
             </Entity>
             <Entity
+             name="FinalRepo"
+             type="Thing">
+                <VisibilityPermissions>
+                    <Visibility></Visibility>
+                </VisibilityPermissions>
+                <DesignTimePermissions>
+                    <Create></Create>
+                    <Read></Read>
+                    <Update></Update>
+                    <Delete></Delete>
+                    <Metadata></Metadata>
+                </DesignTimePermissions>
+                <RunTimePermissions></RunTimePermissions>
+            </Entity>
+            <Entity
              name="GitThing"
              type="Thing">
                 <VisibilityPermissions>
